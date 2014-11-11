@@ -64,12 +64,24 @@ MyApp.controller('MenuController', function($rootScope, $scope){
         ]
     };
     //init
-    $scope.model.selectedCategory = $scope.model.categories[0];
+    $scope.model.selectedDay = $scope.model.days[0];
+    $scope.model.selectedMonth = $scope.model.months[0];
+    $scope.model.selectedYear = $scope.model.years[0];
 
-    $scope.removeCategory = function(){
-        var ind = $scope.model.categories.indexOf( $scope.model.selectedCategory );
-        $scope.model.categories.splice( ind, 1 );
-        $scope.model.selectedCategory = $scope.model.categories[0];
+    $scope.removeDay = function(){
+        var ind = $scope.model.days.indexOf( $scope.model.selectedDay );
+        $scope.model.days.splice( ind, 1 );
+        $scope.model.selectedDay = $scope.model.days[0];
+    };
+    $scope.removeMonth= function(){
+        var ind = $scope.model.months.indexOf( $scope.model.selectedMonth );
+        $scope.model.months.splice( ind, 1 );
+        $scope.model.selectedMonth = $scope.model.months[0];
+    };
+    $scope.removeYear = function(){
+        var ind = $scope.model.years.indexOf( $scope.model.selectedYear );
+        $scope.model.years.splice( ind, 1 );
+        $scope.model.selectedYear = $scope.model.years[0];
     };
 });
 
