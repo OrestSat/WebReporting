@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+	<head>
+        <script src="app/lib/angular/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="app/lib/bootstrap/bootstrap.min.js"></script>
+
+        <link href="app/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="app/css/style.css" rel="stylesheet" type="text/css" />
+
+		<script src="app/js/controllers/HomeController.js"></script>
+
+        <script src="app/js/App.js"></script>
+
+		<title>MyApp</title>
+	</head>
+	<body>
+        <div id="container">
+            <div id="menu" ng-controller="MenuController">
+                <label> Year :</label>
+                <select ng-model="model.selectedYear" ng-options="year as year.title for year in model.years"></select>
+                <br/>
+                <label> Month :</label>
+                <select>
+                    <option ng-repeat="month in months">
+                        {{month}}
+                    </option>
+                </select>
+                <br/>
+                <label> Day :</label>
+                <select>
+                    <option ng-repeat="day in days">
+                        {{day}}
+                    </option>
+                </select>
+            </div>
+            <div ng-view id="table"></div>
+            <div id="tasks">
+                <ul>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                    <li>My Task</li>
+                </ul>
+            </div>
+        </div>
+	</body>
+</html>

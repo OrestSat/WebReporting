@@ -1,0 +1,62 @@
+[
+		{
+            "id" : "1",
+			"name": "Orest",
+			"surname": "Saturskyy",
+			"deposit": "100",
+			"credit": "50",
+			"login": "Orko",
+			"password": "1",
+            "loggedin": "false"
+		},
+        {
+            "id" : "2",
+			"name": "Juriy",
+			"surname": "Chubey",
+			"deposit": "200",
+			"credit": "100",
+			"login": "Jura",
+			"password": "1",
+            "loggedin": "false"
+		},
+		{
+            "id" : "3",
+			"name": "Andrew",
+			"surname": "Saturskyy",
+			"deposit": "10",
+			"credit": "50",
+			"login": "Sata",
+			"password": "1",
+            "loggedin": "false"
+		},
+		{
+            "id" : "4",
+			"name": "Dmytro",
+			"surname": "Ivanov",
+			"deposit": "500",
+			"credit": "300",
+			"login": "Dima",
+			"password": "1",
+            "loggedin": "false"
+		},
+	    {
+            "id" : "6",
+			"name": "Marta",
+			"surname": "Saturska",
+			"deposit": "10",
+			"credit": "10",
+			"login": "Mima",
+			"password": "1",
+            "loggedin": "false"
+	    },
+        {
+            "id" : "5",
+            "name": "Olenka",
+            "surname": "Oliinyk",
+            "deposit": "10",
+            "credit": "50",
+            "login": "Oleno4ka",
+            "password": "1",
+            "loggedin": "false"
+        }
+]
