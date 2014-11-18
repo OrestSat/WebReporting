@@ -1,18 +1,22 @@
 <div>
-    <table class="table" id="our_table">
+    <h1>{{currentMonth}}   {{currentYear}}</h1>
+    <div class="table-responsive">
+    <table class="table table-hover table-bordered">
         <thead>
-        <tr>
-            <th>Hours</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
+        <tr class="info">
+            <th ng-repeat="day in days">{{day}}</th>
         </tr>
         </thead>
-        <tbody id="tableBody">
+        <tbody>
+        <tr ng-repeat="row in calendarDays">
+            <td ng-repeat="col in row" ng-style="setColor($index)" ng-click="setSelectedDay(col)">
+                <div>
+                    {{col}}
+                </div>
+            </td>
+        </tr>
         </tbody>
     </table>
+    </div>
+    <input type="text" ng-model="selectedDay" value="selectedDay">
 </div>

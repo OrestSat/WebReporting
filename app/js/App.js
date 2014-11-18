@@ -5,10 +5,10 @@ var MyApp = angular.module('MyApp');
 MyApp.config(['$routeProvider',function($routeProvider){
     $routeProvider.
         when('/', {
-            templateUrl: 'app/view/day.html',
-            controller: 'HomeController'
+            templateUrl: 'app/view/month.html',
+            controller: 'MonthCalendarController'
         }).
         otherwise({
-            redirectTo: '/home'
+            redirectTo: '/'
         })
 }]);

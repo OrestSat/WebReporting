@@ -9,40 +9,61 @@
         <link href="app/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="app/css/style.css" rel="stylesheet" type="text/css" />
 
-		<script src="app/js/controllers/HomeController.js"></script>
+        <script src="app/js/controllers/EventController.js"></script>
+        <script src="app/js/controllers/MenuController.js"></script>
+        <script src="app/js/controllers/MonthCalendarController.js"></script>
+
+        <script src="app/js/services/EventService.js"></script>
+        <script src="app/js/services/CalendarService.js"></script>
+        <script src="app/js/services/MenuService.js"></script>
 
         <script src="app/js/App.js"></script>
 
 		<title>MyApp</title>
 	</head>
 	<body>
-        <div id="container">
-            <div id="menu" ng-controller="MenuController">
-                <label> Year :</label>
-                <select ng-model="model.selectedYear" ng-options="year as year.title for year in model.years"></select>
-                {{model.selectedYear}}
-                <br/>
-                <label> Month :</label>
-                <select ng-model="model.selectedMonth" ng-options="month as month.title for month in model.months"></select>
-                {{model.selectedMonth}}
-                <br/>
-                <label> Day :</label>
-                <select ng-model="model.selectedDay" ng-options="day as day.title for day in model.days"></select>
-                {{model.selectedDay}}
-            </div>
-            <div ng-view id="table"></div>
-            <div id="tasks">
-                <ul>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                    <li>My Task</li>
-                </ul>
-            </div>
+    <div id="container">
+        <div id="menu" ng-controller="MenuController">
+            <label> Year :</label>
+            <select ng-model="selectedYear" ng-options="year as year.title for year in years"></select>
+            <br/>
+            <label> Month :</label>
+            <select ng-model="selectedMonth" ng-options="month as month.title for month in months"></select>
+            <br/>
+            <label> Days :</label>
+            <select ng-model="data.day" ng-options="day as day.title for day in days"></select>
+            <br/>
         </div>
+        <div ng-view id="table"></div>
+        <div id="tasks" ng-controller="EventController">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="7"> MY TASKS </th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Description</th>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Begin</th>
+                    <th>End</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="event in events">
+                    <td>*</td>
+                    <td>{{event.description}}</td>
+                    <td>{{event.year}}</td>
+                    <td>{{event.month}}</td>
+                    <td>{{event.day}}</td>
+                    <td>{{event.beginHour}}</td>
+                    <td>{{event.endHour}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 	</body>
 </html>

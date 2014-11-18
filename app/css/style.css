@@ -11,6 +11,35 @@
     width: 50%;
     float:left;
 }
+th, td {
+    text-align: center;
+}
+th, td{
+    width: 50px;
+}
+td{
+    height: 50px;
+}
+div{
+    margin-right: 0px;
+}
+
+
+element.style {
+}
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid #ddd;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+    padding: 0px;
+}
+td div{
+    width: 96px;
+    height: 50px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
 #tasks{
     width: 30%;
     float:left;
