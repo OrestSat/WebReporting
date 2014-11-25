@@ -1,15 +1,5 @@
 var MyApp = angular.module('MyApp');
 MyApp.controller("MenuController", function($scope, MenuService){
-    $scope.selectedMonth = MenuService.getSelectedMonth();
-    $scope.selectedYear = MenuService.getSelectedYear();
-
-    $scope.$watch('selectedMonth', function() {
-        MenuService.setSelectedMonth($scope.selectedMonth);
-    });
-
-    $scope.$watch('selectedYear', function() {
-        MenuService.setSelectedYear($scope.selectedYear);
-    });
 
     $scope.years = [
         {title: 2014},
@@ -17,7 +7,6 @@ MyApp.controller("MenuController", function($scope, MenuService){
         {title: 2016},
         {title: 2017}
     ];
-
     $scope.months = [
         {title: 'January', index: 0},
         {title: 'February', index: 1},
@@ -33,12 +22,40 @@ MyApp.controller("MenuController", function($scope, MenuService){
         {title: 'December', index: 11}
     ];
     $scope.days = [
-        {title: 'Monday', index: 1},
-        {title: 'Tuesday', index: 2},
-        {title: 'Wednesday', index: 3},
-        {title: 'Thursday', index: 4},
-        {title: 'Friday', index: 5},
-        {title: 'Saturday', index: 6},
-        {title: 'Sunday', index: 0}
+        {title: 'Monday'},
+        {title: 'Tuesday'},
+        {title: 'Wednesday'},
+        {title: 'Thursday'},
+        {title: 'Friday'},
+        {title: 'Saturday'},
+        {title: 'Sunday'}
     ];
+
+    $scope.$on('timeUpdated', function(){
+        $scope.beginHour = MenuService.beginHour;
+        $scope.endHour = MenuService.endHour;
+        $scope.beginHours = MenuService.beginHours;
+        $scope.endHours = MenuService.endHours;
+
+    });
+    $scope.$on('valuesUpdated', function(){
+        $scope.selectedYear = MenuService.year;
+        $scope.selectedMonth = MenuService.month;
+    });
+    $scope.$on('dayUpdated', function(){
+        $scope.selectedDay = MenuService.day;
+    });
+
+    $scope.$watch('selectedYear', function() {
+        MenuService.updateYear($scope.selectedYear);
+    });
+    $scope.$watch('selectedMonth', function() {
+        MenuService.updateMonth($scope.selectedMonth)
+    });
+    $scope.$watch('selectedBegin', function(){
+       MenuService.updateBeginHour($scope.selectedBegin.index);
+    });
+    $scope.$watch('selectedEnd', function(){
+       MenuService.updateEndHour($scope.selectedEnd.index);
+    });
 });

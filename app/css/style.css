@@ -2,55 +2,58 @@
     width: 100%;
     position: relative;
 }
-#menu{
-    width: 20%;
-    float:left;
-    text-align: center;
-}
-#table{
-    width: 50%;
-    float:left;
-}
-th, td {
-    text-align: center;
-}
 th, td{
     width: 50px;
+    text-align: center;
 }
-td{
+td {
     height: 50px;
 }
-div{
-    margin-right: 0px;
-}
-
-
 element.style {
 }
 .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-    border: 1px solid #ddd;
-}
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+     border: 1px solid #ddd;
+ }
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
     padding: 0px;
 }
-td div{
-    width: 96px;
-    height: 50px;
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
+#table{
+    width: 60%;
+    float:left;
 }
 #tasks{
+    width: 35%;
+    float:left;
+    text-align: center;
+    margin-left: 15px;
+}
+#menu{
     width: 30%;
     float:left;
     text-align: center;
+    overflow:hidden;
+    align-self: center;
+}
+#mainTable{
+    width: 70%
+    float:left;
+    text-align: center;
+    overflow:hidden;
+}
+#selected{
+    border-color: red;
+    border-width: 1px;
 }
 table {
-    height: 500px;
+    height: 260px;
     overflow-y: scroll;
+    table-layout: fixed;
 }
 ul{
     text-align: center;
     margin-right:auto;
 }
-li{ display:inline-block;padding:15px;}
+li{
+    display:inline-block;
+    padding:15px;
+}

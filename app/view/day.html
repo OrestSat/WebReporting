@@ -1,18 +1,18 @@
-<div>
-    <table class="table" id="our_table">
-        <thead>
-            <tr>
-                <th>Hours</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
+<div id="menu" ng-controller="MenuController">
+    <h2>Menu</h2>
+    <label> Begin :</label>
+    <select ng-model="selectedBegin" ng-init="selectedBegin = {title:'00:00',index: 0}" ng-options="hour as hour.title for hour in beginHours"></select>
+    <br/>
+    <label> End :</label>
+    <select ng-model="selectedEnd" ng-init="selectedEnd = {title:'24:00',index: 24}" ng-options="hour as hour.title for hour in endHours"></select>
+    <br/>
+    <input type="text" value="{{selectedYear}}">
+    <input type="text" value="{{selectedMonth}}">
+    <input type="text" value="{{selectedDay}}">
+    <input type="text" value="{{selectedBegin}}">
+    <input type="text" value="{{selectedEnd}}">
+</div>
+<div id="mainTable">
+    <input ng-model="description" type="text" placeholder="Your task description"/>
+    <input type="button" value="Save" ng-click="saveEvent()"/>
 </div>

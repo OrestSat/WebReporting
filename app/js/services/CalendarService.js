@@ -18,7 +18,7 @@ MyApp.service("CalendarService", function() {
 
     var getLength = function(month, year){
         if (month == 1) { // February only!
-            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            if ((year % 4 === 0 && year % 100 != 0) || year % 400 === 0) {
                 return 29;
             }
         }
@@ -27,42 +27,42 @@ MyApp.service("CalendarService", function() {
         }
     };
     this.newCalendar = function(_month, _year){
-        month = (isNaN(_month) || _month == null) ? current_date.getMonth() : _month;
-        year = (isNaN(_year) || _year == null) ? current_date.getFullYear() : _year;
-        monthLength = getLength(_month);
+        month = (isNaN(_month) || _month === null) ? current_date.getMonth() : _month;
+        year = (isNaN(_year) || _year === null) ? current_date.getFullYear() : _year;
+        monthLength = getLength(month, year);
         var firstDay = new Date(year, month, 1);
-        startingDay= firstDay.getDay();
+        days = [[],[],[],[],[],[]];
+        if(firstDay.getDay() === 0){
+            startingDay = 6;
+        } else{
+            startingDay = firstDay.getDay() - 1;
+        }
+
         var k = 1;
         var count = 0;
         for ( var i = 0; i < 6; i++) {
             for (var j = 0; j < 7; j++) {
-                if (count <= startingDay) {
+                if (count < startingDay) {
                     days[i][j] = null;
                     count++;
                 }
                 else {
                     days[i][j] = k;
                     k++;
-                    if (k === getLength(_month, _year) + 1){
+                    if (k > monthLength){
                         break;
                     }
                 }
             }
-            if (k === getLength(_month, _year) + 1){
+            if (k > monthLength){
                 break;
             }
         }
     };
-    this.getSelectedMonth = function(){
-        return cal_months_labels[month];
-    };
-    this.getSelectedYear = function(){
-        return year;
-    };
     this.getCalendarDays = function(){
         return days;
-    }
+    };
     this.getDays = function(){
         return days_labels;
-    }
+    };
 });

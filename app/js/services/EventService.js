@@ -3,7 +3,7 @@
  */
 var MyApp = angular.module('MyApp');
 
-MyApp.service("EventService", function(){
+MyApp.service("EventService", function($rootScope){
     var eid = 1;
     var events = [{
         id: 0,
@@ -25,6 +25,7 @@ MyApp.service("EventService", function(){
                 }
             }
         }
+        $rootScope.$broadcast("newEvent");
     };
     this.get = function(id){
         for(var i in events){

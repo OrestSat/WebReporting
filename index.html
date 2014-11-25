@@ -12,6 +12,7 @@
         <script src="app/js/controllers/EventController.js"></script>
         <script src="app/js/controllers/MenuController.js"></script>
         <script src="app/js/controllers/MonthCalendarController.js"></script>
+        <script src="app/js/controllers/DayCalendarController.js"></script>
 
         <script src="app/js/services/EventService.js"></script>
         <script src="app/js/services/CalendarService.js"></script>
@@ -23,24 +24,12 @@
 	</head>
 	<body>
     <div id="container">
-        <div id="menu" ng-controller="MenuController">
-            <label> Year :</label>
-            <select ng-model="selectedYear" ng-options="year as year.title for year in years"></select>
-            <br/>
-            <label> Month :</label>
-            <select ng-model="selectedMonth" ng-options="month as month.title for month in months"></select>
-            <br/>
-            <label> Days :</label>
-            <select ng-model="data.day" ng-options="day as day.title for day in days"></select>
-            <br/>
-        </div>
         <div ng-view id="table"></div>
+
         <div id="tasks" ng-controller="EventController">
+            <h2>My Tasks</h2>
             <table class="table">
                 <thead>
-                <tr>
-                    <th colspan="7"> MY TASKS </th>
-                </tr>
                 <tr>
                     <th></th>
                     <th>Description</th>

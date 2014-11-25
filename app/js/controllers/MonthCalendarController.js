@@ -4,38 +4,41 @@
 var MyApp = angular.module('MyApp');
 
 MyApp.controller("MonthCalendarController", function($scope, CalendarService, MenuService){
-    $scope.newCalendar = CalendarService.newCalendar(MenuService.getSelectedMonth(), MenuService.getSelectedYear());
-    $scope.currentYear = CalendarService.getSelectedYear();
-    $scope.currentMonth = CalendarService.getSelectedMonth();
-    $scope.currentMonthDays = CalendarService.getCalendarDays();
+
+    $scope.newCalendar = CalendarService.newCalendar();
     $scope.calendarDays = CalendarService.getCalendarDays();
     $scope.days = CalendarService.getDays();
 
-    $scope.$watch(CalendarService.getSelectedMonth(), function(newVal, oldVal){
-        if(newVal){
-            $scope.newCalendar = CalendarService.newCalendar(newVal, CalendarService.getSelectedYear());
-        }
+    $scope.$on('valuesUpdated', function(){
+        $scope.selectedYear = MenuService.year;
+        $scope.selectedMonth = MenuService.month;
+
+        $scope.newCalendar = CalendarService.newCalendar($scope.selectedMonth.index, $scope.selectedYear.title);
+        $scope.calendarDays = CalendarService.getCalendarDays();
     });
 
-    $scope.$watch(CalendarService.getSelectedYear(), function(newVal, oldVal){
-        if(newVal){
-            $scope.newCalendar = CalendarService.newCalendar(CalendarService.getSelectedYear(), newVal);
-        }
+    $scope.$watch('selectedDay', function() {
+        MenuService.updateDay($scope.selectedDay);
     });
+
+    $scope.checked = false;
     $scope.setSelectedDay = function(value){
-        $scope.selectedDay = value;
-    };
 
-    $scope.setColor = function(index){
-      if(index === 5 || index === 6){
-          return {
-              background_color: '#FFEDED'
-          }
-      }
+        if($scope.selectedDay === undefined ){
+            $scope.selectedDay = value;
+            $scope.checked  = !$scope.checked;
+        } else if(value === $scope.selectedDay ){
+            $scope.checked  = !$scope.checked;
+        } else{
+            $scope.selectedDay = value;
+        }
+    };
+    $scope.setClass = function(index){
+        if(index === 5 || index === 6){
+            return "warning";
+        }
         else{
-          return{
-              background_color: '#f5f5f5'
-          }
-      }
+            return "active";
+        }
     };
 });
